@@ -273,14 +273,8 @@
   /* ---------- HOUSTON LOGISTICS HUB (interactive callouts) ---------- */
   .houston-hub{--hub-bg:#003d6f;--hub-accent:#d9d0c1;--hub-ink:#eee9e1;position:relative;isolation:isolate;
         overflow:hidden;background:var(--hub-bg);color:var(--hub-ink);font-family:var(--font-jost);
-        padding:clamp(24px,5vw,72px);max-width:1360px;margin:clamp(24px,3vw,44px) auto 0;border-radius:4px}
+        padding:clamp(18px,2.4vw,34px);max-width:1360px;margin:clamp(24px,3vw,44px) auto 0;border-radius:4px}
   .houston-hub *{box-sizing:border-box}
-  .houston-hub .hub-skyline{position:absolute;inset:auto 0 0;width:100%;height:70%;z-index:-1;color:#1f7db4;opacity:.34;pointer-events:none}
-  .houston-hub .hub-eyebrow{display:flex;align-items:center;gap:10px;color:var(--hub-accent);font-size:11px;font-weight:600;letter-spacing:2.3px;text-transform:uppercase;margin:0 0 25px}
-  .houston-hub .hub-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 5px rgba(189,44,59,.18)}
-  .houston-hub .hub-heading{max-width:800px;margin:0;font-family:var(--font-cormorant);font-size:clamp(40px,5.8vw,80px);line-height:1.02;font-weight:400;letter-spacing:.005em;text-transform:uppercase}
-  .houston-hub .hub-heading span{color:var(--hub-accent)}
-  .houston-hub .hub-intro{font-size:16px;line-height:1.65;max-width:585px;color:var(--cream-muted);margin:25px 0 38px;font-weight:300}
   .houston-hub .hub-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:start}
   .houston-hub .hub-stat{border:1px solid rgba(217,208,193,.26);background:rgba(0,48,79,.92);border-radius:3px;transition:border-color .22s,background .22s,transform .22s;min-width:0}
   .houston-hub .hub-stat:hover,.houston-hub .hub-stat[open]{background:#014a83;border-color:var(--hub-accent)}
@@ -305,13 +299,9 @@
   .houston-hub .hub-detail p{margin:0}
   .houston-hub .hub-meter{height:5px;background:rgba(255,255,255,.14);border-radius:4px;margin:0 0 13px;overflow:hidden}
   .houston-hub .hub-meter span{display:block;width:92%;height:100%;background:var(--accent)}
-  .houston-hub .hub-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;margin-top:32px;padding-top:23px;border-top:1px solid rgba(217,208,193,.22)}
-  .houston-hub .hub-tagline{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin:0;font-weight:600}
-  .houston-hub .hub-routes{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:11px;letter-spacing:1px;color:var(--cream-muted)}
-  .houston-hub .hub-route{border:1px solid rgba(217,208,193,.38);border-radius:3px;padding:7px 10px;color:var(--cream);font-weight:500}
   @media(min-width:1500px){.houston-hub .hub-number{font-size:60px}}
   @media(max-width:1050px){.houston-hub .hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.houston-hub .hub-number{font-size:52px}.houston-hub .hub-stat summary{min-height:264px}}
-  @media(max-width:540px){.houston-hub .hub-grid{grid-template-columns:1fr}.houston-hub .hub-heading{letter-spacing:0}.houston-hub .hub-intro{font-size:14px}.houston-hub .hub-stat summary{min-height:240px}.houston-hub .hub-card-top{margin-bottom:20px}.houston-hub .hub-number{font-size:52px}.houston-hub .hub-footer{align-items:flex-start}.houston-hub .hub-routes{gap:8px}.houston-hub .hub-eyebrow{font-size:10px;letter-spacing:1.6px}}
+  @media(max-width:540px){.houston-hub .hub-grid{grid-template-columns:1fr}.houston-hub .hub-stat summary{min-height:240px}.houston-hub .hub-card-top{margin-bottom:20px}.houston-hub .hub-number{font-size:52px}}
   @media(prefers-reduced-motion:reduce){.houston-hub .hub-stat,.houston-hub .hub-icon,.houston-hub .hub-plus{transition:none}.houston-hub .hub-stat:hover,.houston-hub .hub-stat:hover .hub-icon{transform:none}}
 
   /* two-column media/text — stacked rows share the site-wide grid gap */
@@ -452,10 +442,6 @@
 
     <!-- BEGIN HOUSTON CALLOUT COMPONENT -->
     <section class="houston-hub" aria-label="Houston industrial and logistics highlights">
-     <svg class="hub-skyline" viewBox="0 0 1400 560" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="currentColor"><path d="M0 560V440h70v-65h42v65h47V300h50v-28h24v28h28v260h25V190l22-16h58v386h30V340h65V145h24v-25h17v25h24v415h20V250h56v-30h26v30h22v310h18V85l17-35h16l17 35v475h32V300h48v-28h26v28h24v260h27V178l40-40 40 40v382h26V365h48v-55h52v250h35V270h64v290h22V398h63v-78h44v240h34V420h96v140z"/></g><g fill="none" stroke="currentColor" stroke-width="1"><path d="M-50 510Q550 100 1450 400M-50 540Q650 170 1450 440M0 550H1400"/></g></svg>
-     <p class="hub-eyebrow"><span class="hub-dot" aria-hidden="true"></span>Houston, Texas · IAH Corridor</p>
-     <h2 class="hub-heading">Houston moves<br><span>the world.</span></h2>
-     <p class="hub-intro">A thriving industrial base. Global connections. A logistics corridor that fuels year-round commercial lodging demand.</p>
      <div class="hub-grid">
       <details class="hub-stat">
        <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27V12l13-8 13 8v15M3 12h26M8 27V16h16v11M8 21h16M8 25h16"/></svg><span class="hub-index">01 / SCALE</span></span><span class="hub-number">32M<small>SF</small></span><span class="hub-label">Industrial space<span class="hub-context">Within a three-mile radius</span></span><span class="hub-action"><span class="hub-open-label">Explore the footprint</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
@@ -474,7 +460,6 @@
        <div class="hub-detail"><p>IAH processed over 550,000 metric tons of air cargo in 2025, connecting regional, national, and international supply chains.</p></div>
       </details>
      </div>
-     <div class="hub-footer"><p class="hub-tagline">Global reach. Local demand.</p><div class="hub-routes"><span>CONNECTED VIA</span><span class="hub-route">IAH</span><span class="hub-route">BELTWAY 8</span><span class="hub-route">I-69</span></div></div>
     </section>
     <!-- END HOUSTON CALLOUT COMPONENT -->
   </div>
