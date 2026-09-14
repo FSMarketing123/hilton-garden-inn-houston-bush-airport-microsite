@@ -71,7 +71,11 @@
        background:var(--char);color:var(--cream);border:0;cursor:pointer;
        box-shadow:0 10px 26px rgba(0,39,63,.22);transition:transform .2s,background .2s,box-shadow .2s}
   .btn:hover{transform:translateY(-2px);background:var(--char-2);box-shadow:0 16px 34px rgba(0,39,63,.3)}
-  .btn-row{display:flex;gap:clamp(20px,4vw,64px);justify-content:center;flex-wrap:wrap}
+  .btn-row{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);
+       gap:clamp(20px,4vw,64px);justify-content:center;
+       width:min(100%,780px);margin-inline:auto}
+  .btn-row .btn{display:flex;align-items:center;justify-content:center;text-align:center}
+  @media(max-width:620px){ .btn-row{grid-auto-flow:row;grid-auto-rows:1fr;width:min(100%,360px)} }
 
   /* ---------- NAV (glass nav — inline links at top → hamburger on scroll) ---------- */
   :root{
@@ -162,7 +166,8 @@
   .imgband.label .ib-img{transform:scale(1.06)}
   .imgband.label::after{content:attr(data-label);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
         font-family:var(--font-cormorant);font-weight:300;font-size:clamp(28px,4.4vw,58px);color:#fff;
-        letter-spacing:.01em;padding:22px clamp(24px,5vw,60px);background:rgba(0,48,79,.4);backdrop-filter:blur(4px);
+        letter-spacing:.01em;padding:22px clamp(24px,5vw,60px);background:rgba(0,48,79,.54);backdrop-filter:blur(6px);
+        text-shadow:0 1px 10px rgba(0,20,34,.45);
         border-top:1px solid rgba(255,255,255,.28);border-bottom:1px solid rgba(255,255,255,.28);white-space:nowrap}
 
   /* ---------- SNAPSHOT ---------- */
@@ -437,7 +442,7 @@
 </section>
 
 <!-- ============ AIRPORT AERIAL BAND ============ -->
-<div class="imgband"><div class="ib-img" style="background-image:url('assets/iah-aerial.jpg')"></div></div>
+<div class="imgband"><div class="ib-img" style="background-image:url('assets/houston-skyline-band.jpg')"></div></div>
 
 <!-- ============ HIGHLIGHT 02 — INDUSTRIAL & LOGISTICS ============ -->
 <section class="section" id="industrial">
