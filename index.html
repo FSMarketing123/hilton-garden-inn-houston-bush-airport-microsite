@@ -283,19 +283,19 @@
   }
   /* airport hub: the component's own 2 / 3 / 2 card grouping */
   .iah-airport .hub-grid + .hub-grid{margin-top:var(--grid-gap)}
-  .iah-airport .airport-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .iah-airport .airport-four{grid-template-columns:repeat(4,minmax(0,1fr))}
   .iah-airport .airport-three{grid-template-columns:repeat(3,minmax(0,1fr))}
   .iah-airport .hub-stat summary{min-height:270px}
-  .iah-airport .airport-two .hub-stat summary{min-height:245px}
   .iah-airport .hub-number{font-size:clamp(42px,4.6vw,64px)}
   .iah-airport .hub-card-top{margin-bottom:24px}
   .iah-airport .airport-status{font-size:10px;letter-spacing:1px;color:var(--sand);
         border:1px solid rgba(217,208,193,.45);padding:5px 7px;border-radius:3px}
-  .iah-airport .airport-milestones{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap);margin:18px 0 0;padding:0;list-style:none}
+  .iah-airport .airport-milestones{display:grid;grid-template-columns:1fr;gap:var(--grid-gap);margin:18px 0 0;padding:0;list-style:none}
   .iah-airport .airport-milestones li{border-left:2px solid var(--accent);padding-left:12px}
   .iah-airport .airport-milestones strong{display:block;color:var(--sand);font-size:16px;font-weight:600}
   .iah-airport .airport-milestones span{display:block;font-size:12px}
   @media(max-width:1050px){
+    .iah-airport .airport-four{grid-template-columns:repeat(2,minmax(0,1fr))}
     .iah-airport .airport-three{grid-template-columns:repeat(3,minmax(0,1fr))}
     .iah-airport .airport-three .hub-stat summary{padding:20px;min-height:282px}
     .iah-airport .airport-three .hub-number{font-size:40px}
@@ -306,8 +306,7 @@
     .iah-airport .airport-three .hub-number{font-size:52px}
   }
   @media(max-width:540px){
-    .iah-airport .airport-two{grid-template-columns:1fr}
-    .iah-airport .airport-milestones{grid-template-columns:1fr}
+    .iah-airport .airport-four{grid-template-columns:1fr}
     .iah-airport .hub-number{font-size:52px}
   }
 
@@ -424,16 +423,14 @@
 
     <!-- BEGIN IAH CALLOUT COMPONENT -->
     <section class="iah-airport" aria-label="George Bush Intercontinental Airport highlights">
-     <div class="hub-grid airport-two">
+     <div class="hub-grid airport-four">
       <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m3 17 11-3V6c0-5 4-5 4 0v8l11 3v3l-11-1v6l4 3v2l-6-2-6 2v-2l4-3v-6L3 20z"/></svg><span class="hub-index">01 / TRAFFIC</span></span><span class="hub-number">48.1<small>M</small></span><span class="hub-label">Total passengers<span class="hub-context">Served at IAH in 2025</span></span><span class="hub-action"><span class="hub-open-label">Explore passenger demand</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>IAH served 48.1 million passengers in 2025, supporting its position as a major domestic and international gateway.</p></div></details>
       <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><ellipse cx="16" cy="16" rx="5" ry="12"/><path d="M4 16h24M6 10h20M6 22h20"/></svg><span class="hub-index">02 / GLOBAL</span></span><span class="hub-number">12.4<small>M</small></span><span class="hub-label">International passengers<span class="hub-context">Record international traffic · 2025</span></span><span class="hub-action"><span class="hub-open-label">Discover international reach</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>A record 12.4 million international passengers traveled through IAH in 2025, reinforcing the airport’s global connections.</p></div></details>
-     </div>
-     <div class="hub-grid airport-three">
       <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V12h5v15M23 27V6h5v21M4 11l9-7 5 3 8-5M21 2h5v5"/></svg><span class="hub-index">03 / IMPACT</span></span><span class="hub-number">$30.7<small>B</small></span><span class="hub-label">Total economic impact<span class="hub-context">Annual regional impact</span></span><span class="hub-action"><span class="hub-open-label">Explore the economic impact</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>IAH generates $30.7 billion in total annual economic impact across the region, including $9.9 billion in labor income.</p></div></details>
       <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="7" width="26" height="18" rx="2"/><circle cx="16" cy="16" r="5"/><path d="M7 16h1M24 16h1M16 13v6"/></svg><span class="hub-index">04 / INCOME</span></span><span class="hub-number">$9.9<small>B</small></span><span class="hub-label">Labor income<span class="hub-context">Included in total annual impact</span></span><span class="hub-action"><span class="hub-open-label">See the workforce impact</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>Airport-related activity generates $9.9 billion in annual labor income, a component of IAH’s total economic impact.</p></div></details>
-      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="9" r="4"/><path d="M9 28v-6a7 7 0 0 1 14 0v6M5 12a3 3 0 1 1 3-5M27 12a3 3 0 1 0-3-5M2 25v-5a5 5 0 0 1 5-5M30 25v-5a5 5 0 0 0-5-5"/></svg><span class="hub-index">05 / JOBS</span></span><span class="hub-number">~158<small>K</small></span><span class="hub-label">Jobs supported<span class="hub-context">Across the region</span></span><span class="hub-action"><span class="hub-open-label">Explore regional employment</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>IAH supports roughly 158,000 jobs across the region, reflecting the breadth of its economic contribution.</p></div></details>
      </div>
-     <div class="hub-grid airport-two">
+     <div class="hub-grid airport-three">
+      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="9" r="4"/><path d="M9 28v-6a7 7 0 0 1 14 0v6M5 12a3 3 0 1 1 3-5M27 12a3 3 0 1 0-3-5M2 25v-5a5 5 0 0 1 5-5M30 25v-5a5 5 0 0 0-5-5"/></svg><span class="hub-index">05 / JOBS</span></span><span class="hub-number">~158<small>K</small></span><span class="hub-label">Jobs supported<span class="hub-context">Across the region</span></span><span class="hub-action"><span class="hub-open-label">Explore regional employment</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>IAH supports roughly 158,000 jobs across the region, reflecting the breadth of its economic contribution.</p></div></details>
       <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 28h26M5 28V12h22v16M10 12V5h12v7M10 18h3M19 18h3M10 23h3M19 23h3M14 5V2h4v3"/></svg><span class="airport-status">COMPLETED</span></span><span class="hub-number">$1.46<small>B</small></span><span class="hub-label">Recent airport renovation<span class="hub-context">Terminal D-West Pier + International Central Processor</span></span><span class="hub-action"><span class="hub-open-label">Explore the completed upgrades</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>The renovation added the 160,000-square-foot Terminal D-West Pier, with 10 new gates, restaurants, and amenity spaces. The International Central Processor consolidates ticketing, security, and baggage operations to simplify the passenger journey.</p></div></details>
       <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 29V4h4v25M5 4h22v4H5M9 4l9-3 9 3M23 8v9l3 2-3 3-3-2M2 29h10M17 29v-5h12v5"/></svg><span class="airport-status">UNDERWAY</span></span><span class="hub-number">$2.55<small>B</small></span><span class="hub-label">Terminal B Transformation<span class="hub-context">New concourse, modernized gates, enhanced amenities</span></span><span class="hub-action"><span class="hub-open-label">See the expansion milestones</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>The transformation expands gate capacity and upgrades traveler amenities in the terminal lobby.</p><ul class="airport-milestones"><li><strong>22 new gates</strong><span>North Concourse</span><span>Expected by end of 2026</span></li><li><strong>18 modernized gates</strong><span>South Concourse</span><span>Expected by early 2028</span></li></ul></div></details>
      </div>
@@ -676,6 +673,33 @@
         setTimeout(function(){                   // restore the cover keyword once settled
           if (!el.matches(":hover")){ el.style.backgroundSize = ""; el.style.backgroundPosition = ""; }
         }, 640);
+      });
+    });
+  })();
+
+  // Callout cards: only one open at a time, and a card closes once the
+  // pointer leaves it. Applies to both hubs (industrial + airport).
+  (function(){
+    var cards = [].slice.call(document.querySelectorAll(".houston-hub .hub-stat, .iah-airport .hub-stat"));
+    if (!cards.length) return;
+
+    cards.forEach(function(card){
+      // opening one closes the rest. Closing fires 'toggle' too, hence the guard —
+      // without it each close would re-enter this handler.
+      card.addEventListener("toggle", function(){
+        if (!card.open) return;
+        cards.forEach(function(other){ if (other !== card) other.open = false; });
+      });
+
+      // pointer leaves the card -> close it. The detail panel is inside the
+      // card, so reading it never triggers this.
+      card.addEventListener("mouseleave", function(){ card.open = false; });
+
+      // keyboard users get no mouseleave; close on blur instead, but only once
+      // focus has actually left the card.
+      card.addEventListener("focusout", function(e){
+        if (!card.open) return;
+        if (!e.relatedTarget || !card.contains(e.relatedTarget)) card.open = false;
       });
     });
   })();
