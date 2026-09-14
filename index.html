@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hilton Garden Inn Houston/Bush Intercontinental Airport — Offered by Hodges Ward Elliott</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Base index palette */
+    --paper:#dddee0;      --paper-rgb:221,222,224;
+    --paper-2:#e8e9eb;
+    --band:#1f7db4;       --band-rgb:31,125,180;
+    --char:#003d6f;       --char-rgb:0,61,111;
+    --char-2:#014a83;
+    --char-deep:#00304f;
+    /* Accent index palette */
+    --accent:#bd2c3b;     --accent-lt:#d84351;
+    --sand:#d9d0c1;
+    --blue:#1f7db4;
+    --ink:#00273f;        --ink-muted:#4a5a66;
+    --cream:#eee9e1;      --cream-muted:#c1b8aa;
+    --line-light:rgba(0,39,63,.14);
+    --line-dark:rgba(238,233,225,.16);
+    --font-cormorant:"Cormorant Garamond",Georgia,serif;
+    --font-jost:"Jost",system-ui,sans-serif;
+    --pad:clamp(22px,7vw,104px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:var(--font-jost);font-weight:300;line-height:1.6;
+       -webkit-font-smoothing:antialiased}
+  /* subtle paper grain */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+
+  .section{position:relative;z-index:1;padding:clamp(58px,9vh,116px) var(--pad)}
+  .wrap{max-width:1240px;margin:0 auto}
+  /* concrete texture on every section (fixed, multiply, 50%) */
+  .section::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+        background:url('assets/concrete_wall_2.png') repeat fixed;mix-blend-mode:multiply;opacity:.5}
+  .section>.wrap{position:relative;z-index:1}
+  .bleed{margin-left:calc(-1*var(--pad));margin-right:calc(-1*var(--pad))}
+
+  h1,h2,h3{font-family:var(--font-cormorant);font-weight:300;margin:0}
+
+  /* Section eyebrow header */
+  .kicker{font-family:var(--font-jost);font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+          font-size:clamp(15px,1.7vw,19px);color:var(--ink);margin:0 0 20px}
+  .kicker.on-dark{color:var(--cream)}
+  .kicker .rule{display:block;width:52px;height:2px;background:var(--accent);margin-top:12px}
+
+  .lead{font-size:16.5px;line-height:1.85;color:var(--ink-muted);font-weight:300;text-align:justify;text-align-last:left}
+  .lead.on-dark{color:var(--cream-muted)}
+  .lead b,.lead strong{color:var(--ink);font-weight:500}
+  .lead.on-dark b,.lead.on-dark strong{color:var(--cream);font-weight:500}
+
+  /* Buttons */
+  .btn{display:inline-block;padding:17px 34px;font-family:var(--font-jost);font-size:11px;
+       font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+       background:var(--char);color:var(--cream);border:0;cursor:pointer;
+       box-shadow:0 10px 26px rgba(0,39,63,.22);transition:transform .2s,background .2s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px);background:var(--char-2);box-shadow:0 16px 34px rgba(0,39,63,.3)}
+  .btn-row{display:flex;gap:clamp(20px,4vw,64px);justify-content:center;flex-wrap:wrap}
+
+  /* ---------- NAV (glass nav — inline links at top → hamburger on scroll) ---------- */
+  :root{
+    --nav-accent:#bd2c3b;
+    --nav-accent-soft:rgba(189,44,59,.9);
+    --nav-accent-hover:#d84351;
+    --nav-glass:rgba(0,48,79,.45);
+    --nav-menu-glass:rgba(0,48,79,.82);
+    --nav-height:74px;
+    --nav-logo-height:34px;
+    --nav-font:"Jost",system-ui,sans-serif;
+  }
+  .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav-height);display:flex;align-items:center;
+       justify-content:space-between;padding:0 clamp(20px,5vw,72px);
+       background:var(--nav-glass);backdrop-filter:blur(18px) saturate(130%);
+       -webkit-backdrop-filter:blur(18px) saturate(130%);
+       border-bottom:1px solid rgba(255,255,255,.12);
+       transition:background .35s,height .35s}
+  .nav-logo{display:inline-flex;align-items:center}
+  .nav .logo{height:var(--nav-logo-height);width:auto;opacity:.6;transition:opacity .3s}
+  .nav-logo:hover .logo{opacity:1}
+  .nav-links{display:flex;gap:clamp(14px,2.1vw,32px);align-items:center}
+  .nav-links a{font-size:clamp(9px,1vw,11px);letter-spacing:.2em;text-transform:uppercase;
+               color:rgba(255,255,255,.82);transition:color .2s;white-space:nowrap;font-family:var(--nav-font)}
+  .nav-links a:hover{color:#fff}
+  .nav-links a.navcta{padding:10px 18px;border:1px solid var(--nav-accent);color:#fff;background:var(--nav-accent-soft)}
+  .nav-links a.navcta:hover{background:var(--nav-accent);color:#fff}
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;
+              width:36px;height:36px;padding:0;background:transparent;border:0;cursor:pointer;z-index:2}
+  .nav-toggle span{display:block;width:26px;height:2px;border-radius:2px;background:#fff;
+                   transition:transform .3s ease,opacity .25s ease;transform-origin:center}
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-menu{position:absolute;top:100%;right:clamp(16px,5vw,64px);margin-top:12px;min-width:248px;
+            display:flex;flex-direction:column;gap:2px;padding:14px;
+            background:var(--nav-menu-glass);backdrop-filter:blur(20px) saturate(130%);
+            -webkit-backdrop-filter:blur(20px) saturate(130%);
+            border:1px solid rgba(255,255,255,.14);border-radius:5px;box-shadow:0 24px 60px rgba(0,0,0,.4);
+            opacity:0;visibility:hidden;transform:translateY(-10px);
+            transition:opacity .28s ease,transform .28s ease,visibility .28s}
+  .nav-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+  .nav-menu a{padding:13px 16px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+              color:rgba(255,255,255,.85);border-radius:3px;transition:background .2s,color .2s;font-family:var(--nav-font)}
+  .nav-menu a:hover{background:rgba(255,255,255,.08);color:#fff}
+  .nav-menu a.menu-cta{margin-top:8px;background:var(--nav-accent);color:#fff;font-weight:600;text-align:center}
+  .nav-menu a.menu-cta:hover{background:var(--nav-accent-hover);color:#fff}
+  .nav.scrolled{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent}
+  .nav.scrolled .nav-links{display:none}
+  .nav.scrolled .nav-toggle{display:flex}
+  .nav.scrolled .logo{filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
+  .nav.scrolled .nav-toggle span{box-shadow:0 1px 5px rgba(0,0,0,.55)}
+  @media(max-width:1040px){
+    .nav-links{display:none}
+    .nav-toggle{display:flex}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;
+        background:#00243c;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;background:url('assets/hero.jpg') center center/cover no-repeat}
+  .hero .bg::after{content:"";position:absolute;inset:0;pointer-events:none;
+        background:linear-gradient(180deg,rgba(0,20,34,.46) 0%,rgba(0,20,34,.14) 34%,rgba(0,20,34,.06) 62%,rgba(0,20,34,.3) 100%)}
+  .hero .plogo{position:relative;z-index:20;align-self:flex-end;margin:clamp(104px,15vh,168px) var(--pad) 0 0;
+        width:min(40vw,320px);padding:clamp(12px,1.6vw,20px);
+        background:rgba(0,48,79,.52);
+        -webkit-backdrop-filter:blur(10px) saturate(120%);backdrop-filter:blur(10px) saturate(120%);
+        border:1px solid rgba(255,255,255,.14);border-radius:2px;box-shadow:0 18px 44px rgba(0,0,0,.3)}
+  .hero .plogo img{width:100%;height:auto}
+  .hero .cue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:20;line-height:0}
+  .hero .cue svg{display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+  .hero .cue path{opacity:.14;animation:cueWave 1.8s ease-in-out infinite}
+  .hero .cue path:nth-child(2){animation-delay:.2s}
+  .hero .cue path:nth-child(3){animation-delay:.4s}
+  @keyframes cueWave{0%,100%{opacity:.14}50%{opacity:.5}}
+
+  /* ---------- OVERVIEW ---------- */
+  .overview{position:relative;text-align:center;padding-top:clamp(46px,7vh,86px)}
+  .overview .lead{max-width:940px;margin:0 auto;font-size:clamp(16px,1.4vw,18px);line-height:1.95}
+
+  /* full-bleed image band */
+  .imgband{position:relative;z-index:1;height:clamp(320px,46vw,560px);background-size:cover;background-position:center}
+  .imgband.label::after{content:attr(data-label);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+        font-family:var(--font-cormorant);font-weight:300;font-size:clamp(28px,4.4vw,58px);color:#fff;
+        letter-spacing:.01em;padding:22px clamp(24px,5vw,60px);background:rgba(0,48,79,.4);backdrop-filter:blur(4px);
+        border-top:1px solid rgba(255,255,255,.28);border-bottom:1px solid rgba(255,255,255,.28);white-space:nowrap}
+
+  /* ---------- SNAPSHOT ---------- */
+  .snap-grid{display:grid;grid-template-columns:minmax(340px,1fr) 1.55fr;gap:clamp(14px,1.6vw,22px);align-items:stretch}
+  .snap-card{background:var(--char);color:var(--cream);padding:clamp(30px,3vw,46px);
+        display:flex;flex-direction:column;justify-content:center}
+  .snap-card .plogo{width:280px;max-width:100%;margin:0 auto 32px;text-align:center}
+  .snap-card .plogo img{width:100%}
+  .snap-cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1vw,14px)}
+  .snap-cards .sc{background:rgba(255,255,255,.05);border:1px solid rgba(238,233,225,.14);border-radius:10px;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.05);padding:clamp(16px,1.6vw,22px);
+        display:flex;flex-direction:column;justify-content:flex-start;
+        transition:border-color .25s ease,background .25s ease,transform .25s ease}
+  .snap-cards .sc.wide{grid-column:1/-1}
+  .snap-cards .sc:hover{border-color:rgba(189,44,59,.65);background:rgba(189,44,59,.12);transform:translateY(-2px)}
+  .snap-cards .val{font-size:clamp(18px,1.7vw,21px);line-height:1.25;color:var(--cream);font-weight:400}
+  .snap-cards .lbl{margin-top:12px;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-muted)}
+  .snap-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.35fr 1fr 1fr;gap:clamp(14px,1.6vw,22px)}
+  .snap-photos .p{background-size:cover;background-position:center;min-height:120px}
+  .snap-photos .big{grid-column:1/3}
+  @media(max-width:900px){
+    .snap-grid{grid-template-columns:1fr}
+    .snap-photos{grid-template-rows:repeat(3,minmax(150px,1fr))}
+  }
+
+  /* ---------- HIGHLIGHT SECTIONS ---------- */
+  .band{background:var(--band)}
+  .charblock{background:var(--char);color:var(--cream);padding:clamp(30px,3.5vw,52px)}
+
+  /* image-card stat rows (pre-built callout graphics) */
+  .statrow{display:grid;gap:clamp(14px,1.6vw,20px);margin-top:clamp(18px,2vw,26px)}
+  .statrow-img{gap:clamp(10px,1.1vw,16px)}
+  .statrow-img .stat{background:transparent;padding:0;display:flex;align-items:center;justify-content:center;
+        position:relative;transition:transform .32s cubic-bezier(.16,1,.3,1)}
+  .statrow-img .stat:hover{transform:scale(1.08);z-index:5}
+  .statrow-img .stat img{width:100%;height:auto;display:block}
+  @media(max-width:980px){ .statrow{grid-template-columns:repeat(2,1fr) !important} }
+  @media(max-width:600px){ .statrow{grid-template-columns:1fr !important} }
+
+  /* airport callout row: 4 over 3, centred */
+  /* airport callout rows: 4 over 3, second row inset so it reads as centred */
+  .iah-icons,.iah-icons-row2{display:grid;gap:clamp(10px,1.2vw,18px)}
+  .iah-icons{grid-template-columns:repeat(4,1fr);margin-top:clamp(22px,2.6vw,36px)}
+  .iah-icons-row2{grid-template-columns:repeat(3,1fr);margin:clamp(10px,1.2vw,18px) auto 0;
+        width:calc(75% - clamp(10px,1.2vw,18px)/4)}
+  .iah-icons .stat,.iah-icons-row2 .stat{background:transparent;display:flex;align-items:center;justify-content:center;
+        transition:transform .32s cubic-bezier(.16,1,.3,1)}
+  .iah-icons .stat:hover,.iah-icons-row2 .stat:hover{transform:scale(1.08);z-index:5}
+  .iah-icons .stat img,.iah-icons-row2 .stat img{width:100%;height:auto}
+  @media(max-width:980px){
+    .iah-icons,.iah-icons-row2{grid-template-columns:repeat(2,1fr)}
+    .iah-icons-row2{width:100%}
+  }
+  @media(max-width:560px){
+    .iah-icons,.iah-icons-row2{grid-template-columns:1fr}
+  }
+
+  /* single figure under a highlight */
+  .figure{position:relative;margin-top:clamp(24px,3vw,44px);background-size:cover;background-position:center;
+        height:clamp(300px,38vw,600px);border-radius:2px}
+  .figure span{position:absolute;left:0;right:0;bottom:0;padding:16px 20px;font-size:14px;letter-spacing:.05em;
+        color:#fff;background:linear-gradient(0deg,rgba(0,20,34,.72),rgba(0,20,34,0))}
+
+  /* two-up rendering grid */
+  .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.4vw,20px);margin-top:clamp(24px,3vw,44px)}
+  .rgrid .r{position:relative;background-size:cover;background-position:center;height:clamp(260px,26vw,420px);border-radius:2px}
+  .rgrid .r span{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;font-size:14px;letter-spacing:.05em;
+        color:#fff;background:linear-gradient(0deg,rgba(0,20,34,.72),rgba(0,20,34,0))}
+  @media(max-width:760px){.rgrid{grid-template-columns:1fr}}
+
+  /* ---------- HOUSTON ---------- */
+  .houston2{padding-top:clamp(40px,6vh,74px);padding-bottom:clamp(40px,6vh,74px)}
+  .hou2-stats{padding:clamp(14px,2vw,26px) clamp(8px,1.4vw,20px) 0;
+        display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,1.6vw,26px);align-items:center}
+  .hou2-stats img{width:100%;height:auto;display:block;position:relative;transition:transform .32s cubic-bezier(.16,1,.3,1)}
+  .hou2-stats img:hover{transform:scale(1.12);z-index:2}
+  @media(max-width:860px){ .hou2-stats{grid-template-columns:repeat(3,1fr)} }
+  @media(max-width:520px){ .hou2-stats{grid-template-columns:1fr 1fr} }
+
+  /* ---------- HOUSTON LOGISTICS HUB (interactive callouts) ---------- */
+  .houston-hub{--hub-bg:#003d6f;--hub-accent:#d9d0c1;--hub-ink:#eee9e1;position:relative;isolation:isolate;
+        overflow:hidden;background:var(--hub-bg);color:var(--hub-ink);font-family:var(--font-jost);
+        padding:clamp(24px,5vw,72px);max-width:1360px;margin:clamp(24px,3vw,44px) auto 0;border-radius:4px}
+  .houston-hub *{box-sizing:border-box}
+  .houston-hub .hub-skyline{position:absolute;inset:auto 0 0;width:100%;height:70%;z-index:-1;color:#1f7db4;opacity:.34;pointer-events:none}
+  .houston-hub .hub-eyebrow{display:flex;align-items:center;gap:10px;color:var(--hub-accent);font-size:11px;font-weight:600;letter-spacing:2.3px;text-transform:uppercase;margin:0 0 25px}
+  .houston-hub .hub-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 5px rgba(189,44,59,.18)}
+  .houston-hub .hub-heading{max-width:800px;margin:0;font-family:var(--font-cormorant);font-size:clamp(40px,5.8vw,80px);line-height:1.02;font-weight:400;letter-spacing:.005em;text-transform:uppercase}
+  .houston-hub .hub-heading span{color:var(--hub-accent)}
+  .houston-hub .hub-intro{font-size:16px;line-height:1.65;max-width:585px;color:var(--cream-muted);margin:25px 0 38px;font-weight:300}
+  .houston-hub .hub-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:start}
+  .houston-hub .hub-stat{border:1px solid rgba(217,208,193,.26);background:rgba(0,48,79,.92);border-radius:3px;transition:border-color .22s,background .22s,transform .22s;min-width:0}
+  .houston-hub .hub-stat:hover,.houston-hub .hub-stat[open]{background:#014a83;border-color:var(--hub-accent)}
+  .houston-hub .hub-stat:hover{transform:translateY(-4px)}
+  .houston-hub .hub-stat summary{list-style:none;cursor:pointer;padding:24px;min-height:272px;display:flex;flex-direction:column}
+  .houston-hub .hub-stat summary::-webkit-details-marker{display:none}
+  .houston-hub .hub-stat summary:focus-visible{outline:3px solid var(--hub-accent);outline-offset:5px;border-radius:3px}
+  .houston-hub .hub-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
+  .houston-hub .hub-icon{width:31px;height:31px;color:var(--hub-accent);fill:none;stroke:currentColor;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+  .houston-hub .hub-stat:hover .hub-icon{transform:translateY(-3px)}
+  .houston-hub .hub-index{color:#9db4c6;font-size:11px;letter-spacing:1px}
+  .houston-hub .hub-number{font-size:clamp(35px,4vw,60px);line-height:1;letter-spacing:-2px;white-space:nowrap;font-weight:600;margin-bottom:15px}
+  .houston-hub .hub-number small{font-size:.46em;letter-spacing:-.5px;margin-left:3px}
+  .houston-hub .hub-label{font-size:14px;line-height:1.5;color:var(--cream);font-weight:500}
+  .houston-hub .hub-context{display:block;color:var(--cream-muted);font-size:12px;font-weight:300;margin-top:3px}
+  .houston-hub .hub-action{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:22px;color:var(--hub-accent);font-size:11px;letter-spacing:.6px}
+  .houston-hub .hub-plus{font-size:20px;font-weight:400;transition:transform .2s}
+  .houston-hub .hub-stat[open] .hub-plus{transform:rotate(45deg)}
+  .houston-hub .hub-close-label,.houston-hub .hub-stat[open] .hub-open-label{display:none}
+  .houston-hub .hub-stat[open] .hub-close-label{display:inline}
+  .houston-hub .hub-detail{margin:0 24px;padding:18px 0 24px;border-top:1px solid rgba(217,208,193,.24);color:var(--cream-muted);font-size:13px;line-height:1.65}
+  .houston-hub .hub-detail p{margin:0}
+  .houston-hub .hub-meter{height:5px;background:rgba(255,255,255,.14);border-radius:4px;margin:0 0 13px;overflow:hidden}
+  .houston-hub .hub-meter span{display:block;width:92%;height:100%;background:var(--accent)}
+  .houston-hub .hub-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;margin-top:32px;padding-top:23px;border-top:1px solid rgba(217,208,193,.22)}
+  .houston-hub .hub-tagline{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin:0;font-weight:600}
+  .houston-hub .hub-routes{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:11px;letter-spacing:1px;color:var(--cream-muted)}
+  .houston-hub .hub-route{border:1px solid rgba(217,208,193,.38);border-radius:3px;padding:7px 10px;color:var(--cream);font-weight:500}
+  @media(min-width:1500px){.houston-hub .hub-number{font-size:60px}}
+  @media(max-width:1050px){.houston-hub .hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.houston-hub .hub-number{font-size:52px}.houston-hub .hub-stat summary{min-height:264px}}
+  @media(max-width:540px){.houston-hub .hub-grid{grid-template-columns:1fr}.houston-hub .hub-heading{letter-spacing:0}.houston-hub .hub-intro{font-size:14px}.houston-hub .hub-stat summary{min-height:240px}.houston-hub .hub-card-top{margin-bottom:20px}.houston-hub .hub-number{font-size:52px}.houston-hub .hub-footer{align-items:flex-start}.houston-hub .hub-routes{gap:8px}.houston-hub .hub-eyebrow{font-size:10px;letter-spacing:1.6px}}
+  @media(prefers-reduced-motion:reduce){.houston-hub .hub-stat,.houston-hub .hub-icon,.houston-hub .hub-plus{transition:none}.houston-hub .hub-stat:hover,.houston-hub .hub-stat:hover .hub-icon{transform:none}}
+
+  /* two-column media/text */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+  .split .media{background-size:cover;background-position:center;min-height:clamp(300px,34vw,460px)}
+  .split .panel{background:var(--char-2);color:var(--cream);padding:clamp(32px,4vw,60px);display:flex;flex-direction:column;justify-content:center}
+  @media(max-width:820px){
+    .split{grid-template-columns:1fr}
+    .split.rev .media{order:2}
+  }
+
+  /* CTA strip */
+  .cta{text-align:center;padding-top:clamp(40px,6vh,72px);padding-bottom:clamp(56px,8vh,96px)}
+
+  /* footer */
+  .footer{position:relative;z-index:1;background:var(--char-deep);color:var(--cream);padding:clamp(56px,7vw,90px) var(--pad)}
+  .foot-grid{display:grid;grid-template-columns:minmax(180px,300px) 1fr;gap:clamp(34px,6vw,90px);align-items:center;max-width:1240px;margin:0 auto}
+  .foot-grid .hwe img{width:min(220px,60%);height:auto}
+  .foot-head{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-muted);
+        padding-bottom:12px;margin-bottom:22px;border-bottom:1px solid var(--line-dark)}
+  .contacts{display:grid;grid-template-columns:1fr 1fr;gap:22px 40px}
+  .contacts .c .nm{font-weight:500;color:var(--cream);font-size:14px}
+  .contacts .c .tt{font-size:12.5px;color:var(--cream-muted)}
+  .contacts .c .em{font-size:12.5px;color:var(--sand);margin-top:2px}
+  .foot-adv{margin-top:30px}
+  .foot-legal{max-width:1240px;margin:44px auto 0;padding-top:22px;border-top:1px solid var(--line-dark);
+        font-size:11px;color:var(--cream-muted);line-height:1.7}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;text-align:left}.contacts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ============ GLASS NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="#top"><img class="logo" src="assets/hwe-white.svg" alt="Hodges Ward Elliott"></a>
+  <div class="nav-links" id="navLinks"><!-- injected by nav script --></div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-menu" id="navMenu"><!-- injected by nav script --></div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="bg"></div>
+  <div class="plogo"><img src="assets/property-logo.svg" alt="Hilton Garden Inn Houston/Bush Intercontinental Airport"></div>
+  <span class="cue" aria-hidden="true">
+    <svg viewBox="0 0 28 42" width="28" height="42" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 7 L14 15 L23 7"/>
+      <path d="M5 17 L14 25 L23 17"/>
+      <path d="M5 27 L14 35 L23 27"/>
+    </svg>
+  </span>
+</header>
+
+<!-- ============ INVESTMENT OVERVIEW ============ -->
+<section class="section overview" id="overview">
+  <div class="wrap">
+    <p class="kicker" style="text-align:center">Investment Overview<span class="rule" style="margin:12px auto 0"></span></p>
+    <p class="lead">Hodges Ward Elliott ("HWE") is pleased to present the opportunity to acquire the <b>182-key Hilton Garden Inn Houston/Bush Intercontinental Airport</b> (the “Hotel” or “Property”), situated just over three miles from George Bush Intercontinental Airport, one of the nation’s busiest air travel hubs. The Hotel sits in a highly established corporate corridor surrounded by <b>over 70 million square feet of office and industrial space within a five-mile radius</b>, with major employers in the area including United Airlines, Baker Hughes, HMH, Integra Mission Critical, and Halliburton. Furthermore, Eli Lilly and Bristol Myers Squibb are investing <b>nearly $9 billion combined</b> to build brand-new manufacturing developments at the emerging Generation Park, representing some of the largest life science investments in Texas history. Beltway 8 and Interstate 69 provide convenient access to the Houston metro as well, easily connecting visitors to the greater MSA. The well-located Hilton Garden Inn presents a rare opportunity to acquire a top asset in one of Houston's most consistently high-demand submarkets.</p>
+    <div class="btn-row" style="margin-top:44px">
+      <a class="btn" href="#" data-ca="sign">Sign Confidentiality Agreement</a>
+      <a class="btn" href="#" data-ca="download">Download Confidentiality Agreement</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DINING BAND ============ -->
+<div class="imgband" style="background-image:url('assets/band-dining.jpg')"></div>
+
+<!-- ============ PROPERTY SNAPSHOT ============ -->
+<section class="section" id="snapshot" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="snap-grid">
+      <div class="snap-card">
+        <div class="plogo"><img src="assets/property-logo.svg" alt="Hilton Garden Inn Houston/Bush Intercontinental Airport"></div>
+        <div class="snap-cards">
+          <div class="sc wide"><div class="val">15400 John F Kennedy Blvd<br>Houston, TX 77032</div><div class="lbl">Address</div></div>
+          <div class="sc"><div class="val">2002</div><div class="lbl">Year Opened</div></div>
+          <div class="sc"><div class="val">182</div><div class="lbl">Keys</div></div>
+          <div class="sc"><div class="val">6</div><div class="lbl">Stories</div></div>
+          <div class="sc"><div class="val">2,700 SF</div><div class="lbl">Meeting Space</div></div>
+          <div class="sc"><div class="val">The Garden Grille &amp; Bar</div><div class="lbl">F&amp;B</div></div>
+          <div class="sc"><div class="val">Non-Union</div><div class="lbl">Labor</div></div>
+          <div class="sc wide"><div class="val">Fitness Center, Outdoor Pool, Business Center, Convenience Store, Airport Shuttle</div><div class="lbl">Amenities</div></div>
+          <div class="sc"><div class="val">Fee Simple</div><div class="lbl">Interest Conveyed</div></div>
+          <div class="sc"><div class="val">Unencumbered</div><div class="lbl">Management</div></div>
+        </div>
+      </div>
+      <div class="snap-photos">
+        <div class="p big" style="background-image:url('assets/snap-exterior.jpg')"></div>
+        <div class="p" style="background-image:url('assets/snap-room-king.jpg')"></div>
+        <div class="p" style="background-image:url('assets/snap-room-double.jpg')"></div>
+        <div class="p" style="background-image:url('assets/snap-lobby.jpg')"></div>
+        <div class="p" style="background-image:url('assets/snap-bar.jpg')"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INVESTMENT HIGHLIGHTS BAND ============ -->
+<div class="imgband label" data-label="Investment Highlights" style="background-image:url('assets/band-highlights.jpg')"></div>
+
+<!-- ============ HIGHLIGHT 01 — IAH ============ -->
+<section class="section band" id="airport">
+  <div class="wrap">
+    <div class="charblock">
+      <p class="kicker on-dark">At the Doorstep of George Bush Intercontinental Airport<span class="rule"></span></p>
+      <p class="lead on-dark">George Bush Intercontinental Airport ("IAH") continues to strengthen its position as one of the nation's busiest international gateways through significant capital investment and record international passenger traffic. In 2025, the airport served <b>48.1 million passengers</b>, including a record <b>12.4 million international passengers</b>. IAH generates a total annual economic impact of <b>$30.7 billion</b>, including <b>$9.9 billion in labor income</b>, and supports roughly <b>158,000 jobs</b> across the region. To accommodate future demand, IAH recently completed a <b>$1.46 billion renovation</b> that added the 160,000-square-foot Terminal D-West Pier, featuring 10 new gates, restaurants, and amenity spaces, as well as the International Central Processor, which consolidates ticketing, security, and baggage operations to improve navigation and reduce wait times. The airport is also advancing the <b>$2.55 billion Terminal B Transformation</b>, which will add a new 22-gate North Concourse by the end of 2026, modernize 18 gates in the South Concourse, expected to be ready by early 2028, and enhance traveler amenities in the lobby. These investments position IAH for sustained long-term growth while further reinforcing demand for high-quality airport hotels such as the Hilton Garden Inn Houston/Bush Intercontinental Airport.</p>
+    </div>
+
+    <div class="iah-icons">
+      <div class="stat"><img src="assets/bush-airport-icon-01.png" alt="48.1M passengers in 2025"></div>
+      <div class="stat"><img src="assets/bush-airport-icon-02.png" alt="12.4M international passengers in 2025"></div>
+      <div class="stat"><img src="assets/bush-airport-icon-03.png" alt="$30.7B total economic impact"></div>
+      <div class="stat"><img src="assets/bush-airport-icon-04.png" alt="$9.9B labor income"></div>
+    </div>
+    <div class="iah-icons-row2">
+      <div class="stat"><img src="assets/bush-airport-icon-05.png" alt="IAH supports approximately 158,000 jobs"></div>
+      <div class="stat"><img src="assets/bush-airport-icon-06.png" alt="Recent $1.46B renovation"></div>
+      <div class="stat"><img src="assets/bush-airport-icon-07.png" alt="Undergoing $2.55B Terminal B Transformation"></div>
+    </div>
+
+    <div class="figure" style="background-image:url('assets/iah-terminal-b.jpg')" role="img" aria-label="George Bush Intercontinental Airport Terminal B Transformation under construction, June 2025"><span>Terminal B Transformation — George Bush Intercontinental Airport (June 2025)</span></div>
+  </div>
+</section>
+
+<!-- ============ AIRPORT AERIAL BAND ============ -->
+<div class="imgband" style="background-image:url('assets/iah-aerial.jpg')"></div>
+
+<!-- ============ HIGHLIGHT 02 — INDUSTRIAL & LOGISTICS ============ -->
+<section class="section" id="industrial">
+  <div class="wrap">
+    <p class="kicker">Anchored by a Thriving Industrial &amp; Logistics Hub<span class="rule"></span></p>
+    <p class="lead">The surrounding three miles encompass <b>nearly 32 million square feet of industrial inventory at approximately 92% occupancy</b>, showcasing the area’s strong demand and market fundamentals. With <b>over 771,000 square feet of additional space currently under construction</b>, this continued expansion underscores the market's long-term appeal. The region’s logistics hub is anchored by IAH, which generates an annual cargo-related economic impact of <b>$12.5 billion</b>, driven by more than <b>550,000 metric tons of air cargo in 2025</b>. With quick access to the airport, Beltway 8, and Interstate 69, the corridor serves as a critical distribution artery connecting regional, national, and international supply chains, reinforcing a resilient base of year-round commercial lodging demand.</p>
+
+    <!-- BEGIN HOUSTON CALLOUT COMPONENT -->
+    <section class="houston-hub" aria-label="Houston industrial and logistics highlights">
+     <svg class="hub-skyline" viewBox="0 0 1400 560" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="currentColor"><path d="M0 560V440h70v-65h42v65h47V300h50v-28h24v28h28v260h25V190l22-16h58v386h30V340h65V145h24v-25h17v25h24v415h20V250h56v-30h26v30h22v310h18V85l17-35h16l17 35v475h32V300h48v-28h26v28h24v260h27V178l40-40 40 40v382h26V365h48v-55h52v250h35V270h64v290h22V398h63v-78h44v240h34V420h96v140z"/></g><g fill="none" stroke="currentColor" stroke-width="1"><path d="M-50 510Q550 100 1450 400M-50 540Q650 170 1450 440M0 550H1400"/></g></svg>
+     <p class="hub-eyebrow"><span class="hub-dot" aria-hidden="true"></span>Houston, Texas · IAH Corridor</p>
+     <h2 class="hub-heading">Houston moves<br><span>the world.</span></h2>
+     <p class="hub-intro">A thriving industrial base. Global connections. A logistics corridor that fuels year-round commercial lodging demand.</p>
+     <div class="hub-grid">
+      <details class="hub-stat">
+       <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27V12l13-8 13 8v15M3 12h26M8 27V16h16v11M8 21h16M8 25h16"/></svg><span class="hub-index">01 / SCALE</span></span><span class="hub-number">32M<small>SF</small></span><span class="hub-label">Industrial space<span class="hub-context">Within a three-mile radius</span></span><span class="hub-action"><span class="hub-open-label">Explore the footprint</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
+       <div class="hub-detail"><p>Nearly 32 million square feet of nearby industrial inventory anchor the corridor, with more than 771,000 additional square feet under construction.</p></div>
+      </details>
+      <details class="hub-stat">
+       <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25a13 13 0 1 1 22 0M16 18l8-9M7 16h2M16 5v2M25 16h2"/><circle cx="16" cy="18" r="2.5"/></svg><span class="hub-index">02 / DEMAND</span></span><span class="hub-number">92<small>%</small></span><span class="hub-label">Industrial occupancy<span class="hub-context">Within a three-mile radius</span></span><span class="hub-action"><span class="hub-open-label">See market demand</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
+       <div class="hub-detail"><div class="hub-meter" role="img" aria-label="Approximately 92 percent occupied"><span></span></div><p>Approximately 92% occupancy reflects strong demand across the surrounding industrial market.</p></div>
+      </details>
+      <details class="hub-stat">
+       <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V12h5v15M23 27V6h5v21M4 11l9-7 5 3 8-5M21 2h5v5"/></svg><span class="hub-index">03 / IMPACT</span></span><span class="hub-number">$12.5<small>B</small></span><span class="hub-label">Cargo-related economic impact<span class="hub-context">Annual impact of IAH</span></span><span class="hub-action"><span class="hub-open-label">Explore the impact</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
+       <div class="hub-detail"><p>George Bush Intercontinental Airport anchors the region’s logistics hub, generating $12.5 billion in annual cargo-related economic impact.</p></div>
+      </details>
+      <details class="hub-stat">
+       <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m3 17 11-3V6c0-5 4-5 4 0v8l11 3v3l-11-1v6l4 3v2l-6-2-6 2v-2l4-3v-6L3 20z"/></svg><span class="hub-index">04 / REACH</span></span><span class="hub-number">550K<small>+</small></span><span class="hub-label">Metric tons of air cargo<span class="hub-context">Processed at IAH in 2025</span></span><span class="hub-action"><span class="hub-open-label">Discover global reach</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
+       <div class="hub-detail"><p>IAH processed over 550,000 metric tons of air cargo in 2025, connecting regional, national, and international supply chains.</p></div>
+      </details>
+     </div>
+     <div class="hub-footer"><p class="hub-tagline">Global reach. Local demand.</p><div class="hub-routes"><span>CONNECTED VIA</span><span class="hub-route">IAH</span><span class="hub-route">BELTWAY 8</span><span class="hub-route">I-69</span></div></div>
+    </section>
+    <!-- END HOUSTON CALLOUT COMPONENT -->
+  </div>
+</section>
+
+<!-- ============ HIGHLIGHT 03 — MANUFACTURING ============ -->
+<section class="section band" id="manufacturing">
+  <div class="wrap">
+    <div class="charblock">
+      <p class="kicker on-dark">Industry-Leading New Manufacturing Developments<span class="rule"></span></p>
+      <p class="lead on-dark">Eli Lilly is building a new <b>$6.5 billion pharmaceutical manufacturing campus</b> at Generation Park, representing the largest biotech manufacturing investment in Texas history. The 236-acre campus broke ground in July 2026 and is expected to be operational by 2030, bringing 615 jobs to the area. Bristol Myers Squibb followed in August 2026 with the announcement of a planned <b>$2.3 billion, 600,000-square-foot manufacturing campus</b> at the same development, which will add an estimated 500 jobs upon its completion. Together, the two projects represent <b>nearly $9 billion in committed pharmaceutical investment</b>, establishing a permanent base of high-wage technical employment that will drive recurring corporate, vendor, and training-related demand.</p>
+    </div>
+    <div class="rgrid">
+      <div class="r" style="background-image:url('assets/rendering-eli-lilly.webp')"><span>Eli Lilly — Generation Park Manufacturing Campus (Rendering)</span></div>
+      <div class="r" style="background-image:url('assets/rendering-bristol-myers-squibb.webp')"><span>Bristol Myers Squibb — Generation Park Campus (Rendering)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HIGHLIGHT 04 — HOUSTON ============ -->
+<section class="section houston2" id="houston">
+  <div class="wrap">
+    <div class="charblock">
+      <p class="kicker on-dark">Houston — Global Economic Epicenter<span class="rule"></span></p>
+      <p class="lead on-dark">The <b>nation's fifth-largest metropolitan area</b>, Houston covers roughly 10,000 square miles and is home to nearly 3.5 million jobs. As the <b>fourth-largest city in the United States</b>, it is a global gateway city with a history of impressive GDP, population, and employment growth. From 2024 to 2025, Houston <b>added more residents than any other U.S. metro</b>, growing by 126,720 to nearly 7.9 million. Home to over 4,200 energy-related firms, Houston employs nearly a third of the nation's jobs in oil and gas extraction, earning its reputation as the <b>"Energy Capital of the World."</b> In addition, Houston hosts the largest medical center in the world, the nation's number one waterway, and a globally renowned arts hub. The city has also emerged as one of the most popular travel destinations in the U.S., <b>welcoming a record 53.9 million visitors in 2024</b>, up from 51.4 million in 2023 and 48.7 million in 2022. More broadly, over 92 million people visited the greater Houston metro in 2024, generating <b>$27 billion in total economic impact</b>.</p>
+    </div>
+    <div class="hou2-stats">
+      <img src="assets/houston-global-icon-01.png" alt="#1 U.S. Metro for Population Growth — U.S. Census Bureau, 2025 estimates">
+      <img src="assets/houston-global-icon-02.png" alt="#2 Fortune 500 Headquarters Metro — Greater Houston Partnership / Fortune, 2026">
+      <img src="assets/houston-global-icon-03.png" alt="#5 Best Metro for Corporate Headquarters — Business Facilities, 2026">
+      <img src="assets/houston-global-icon-04.png" alt="#7 Best U.S. City for Starting a Business — CommercialCafe, 2026">
+      <img src="assets/houston-global-icon-05.png" alt="#9 Best U.S. Cities — Resonance Consultancy, 2026">
+      <img src="assets/houston-global-icon-06.png" alt="#16 Most Diverse Cities in America — Niche, 2026">
+    </div>
+  </div>
+</section>
+
+<!-- ============ HIGHLIGHT 05 — RECENTLY RENOVATED ============ -->
+<section class="section band" id="renovated" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="split bleed">
+      <div class="media" style="background-image:url('assets/renovated.jpg')"></div>
+      <div class="panel">
+        <p class="kicker on-dark">Recently Renovated with Operational Upside<span class="rule"></span></p>
+        <p class="lead on-dark">Following a <b>renovation completed in 2023</b>, the Hilton Garden Inn Houston/Bush Intercontinental Airport offers new ownership a Hilton-branded asset with near-term capital needs largely mitigated. The Property has demonstrated recent momentum, with <b>July YTD RevPAR improving 17.9% year-over-year</b>. With significant capital already invested in the Hotel, new ownership is well positioned to build on this improvement through continued revenue management and market share growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HIGHLIGHT 06 — CLEAN INVESTMENT OFFERING ============ -->
+<section class="section band" id="offering" style="padding-top:0;padding-bottom:0">
+  <div class="wrap">
+    <div class="split rev bleed">
+      <div class="panel">
+        <p class="kicker on-dark">Clean Investment Offering<span class="rule"></span></p>
+        <p class="lead on-dark">The <b>fee-simple interest</b> in the Hilton Garden Inn is being offered <b>free and clear of existing management and financing</b>, affording new ownership maximum optionality in the future operation and capitalization of the Hotel.</p>
+      </div>
+      <div class="media" style="background-image:url('assets/offering-pool.jpg')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta band" style="padding-top:clamp(46px,7vh,84px)">
+  <div class="wrap">
+    <div class="btn-row">
+      <a class="btn" href="#" data-ca="sign">Sign Confidentiality Agreement</a>
+      <a class="btn" href="#" data-ca="download">Download Confidentiality Agreement</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="foot-grid">
+    <div class="hwe"><img src="assets/hwe-white.svg" alt="Hodges Ward Elliott"></div>
+    <div>
+      <div class="foot-head">Exclusive Representatives</div>
+      <div class="contacts">
+        <div class="c"><div class="nm">Austin Brooks</div><div class="tt">Executive Managing Director</div><div class="em">abrooks@hodgeswardelliott.com</div></div>
+        <div class="c"><div class="nm">Michael Brandes</div><div class="tt">Vice President</div><div class="em">mbrandes@hodgeswardelliott.com</div></div>
+        <div class="c"><div class="nm">Dawson Ovard</div><div class="tt">Analyst</div><div class="em">dovard@hodgeswardelliott.com</div></div>
+        <div class="c"><div class="nm">Harrison Fisher</div><div class="tt">Analyst</div><div class="em">hfisher@hodgeswardelliott.com</div></div>
+      </div>
+      <div class="foot-adv">
+        <div class="foot-head">Acquisition Financing Advisor</div>
+        <div class="contacts">
+          <div class="c"><div class="nm">Michael Britvan</div><div class="tt">Managing Director</div><div class="em">mbritvan@hodgeswardelliott.com</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot-legal">
+    This microsite and its contents are confidential and intended solely for the recipient. All information has been obtained from sources deemed reliable; however, Hodges Ward Elliott makes no representation or warranty as to its accuracy or completeness. Access to the Offering Memorandum requires execution of a Confidentiality Agreement.
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+  // Glass nav: inline links at top; collapse into hamburger dropdown once scrolled
+  (function(){
+    var NAV = {
+      homeHref: "#top",
+      scrollThreshold: 60,
+      links: [
+        { label: "Overview",      href: "#overview" },
+        { label: "Property",      href: "#snapshot" },
+        { label: "Airport",       href: "#airport" },
+        { label: "Industrial",    href: "#industrial" },
+        { label: "Houston",       href: "#houston" },
+        { label: "Offering Memorandum", href: "#offering", cta: true }
+      ]
+    };
+    var nav       = document.getElementById('nav'),
+        navToggle = document.getElementById('navToggle'),
+        navMenu   = document.getElementById('navMenu'),
+        navLinks  = document.getElementById('navLinks');
+
+    var inline = '', menu = '';
+    NAV.links.forEach(function(l){
+      inline += '<a'+(l.cta?' class="navcta"':'')+' href="'+l.href+'">'+l.label+'</a>';
+      menu   += '<a'+(l.cta?' class="menu-cta"':'')+' href="'+l.href+'">'+l.label+'</a>';
+    });
+    navLinks.innerHTML = inline; navMenu.innerHTML = menu;
+
+    function closeMenu(){ navMenu.classList.remove('open'); navToggle.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); }
+    navToggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=navMenu.classList.toggle('open');
+      navToggle.classList.toggle('open',open);
+      navToggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    navMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',closeMenu); });
+    document.addEventListener('click',function(e){ if(!nav.contains(e.target)) closeMenu(); });
+    function onScroll(){ if(window.scrollY>NAV.scrollThreshold){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); closeMenu(); } }
+    window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  })();
+
+  // CA button placeholders
+  document.querySelectorAll("[data-ca]").forEach(function(b){
+    b.addEventListener("click", function(e){
+      if (b.getAttribute("href") === "#"){ e.preventDefault();
+        alert("Confidentiality Agreement link to be added.\n(" + b.getAttribute("data-ca") + ")"); }
+    });
+  });
+
+  // Parallax-on-hover for all photo panels: smooth eased zoom + pan opposite the cursor.
+  (function(){
+    var SEL = ".snap-photos .p, .imgband, .split .media, .figure, .rgrid .r";
+    var EASE = "cubic-bezier(.16,1,.3,1)";   // smooth ease-out settle (in and out)
+    var ZOOM = 1.14;
+    document.querySelectorAll(SEL).forEach(function(el){
+      // resolve the image's natural aspect ratio so we can emulate "cover" as a
+      // numeric background-size — required for the zoom to animate (cover is discrete).
+      var src = (el.style.backgroundImage || getComputedStyle(el).backgroundImage || "");
+      var m = /url\(["']?(.*?)["']?\)/.exec(src);
+      if (!m) return;
+      var ratio = 0;
+      var probe = new Image();
+      probe.onload = function(){ ratio = probe.naturalWidth / probe.naturalHeight; };
+      probe.src = m[1];
+
+      el.style.transition = "background-size .6s " + EASE + ", background-position .45s " + EASE;
+      el.style.willChange = "background-size, background-position";
+
+      function coverPct(){                       // single-value % that matches background-size:cover
+        var r = el.getBoundingClientRect();
+        if (!ratio || !r.width) return 100;
+        return 100 * Math.max(1, ratio / (r.width / r.height));
+      }
+      el.addEventListener("mouseenter", function(){
+        var base = coverPct();
+        el._base = base;
+        el.style.backgroundSize = base + "%";    // == cover visually (no visible jump)
+        requestAnimationFrame(function(){        // next frame → animates the eased zoom-in
+          el.style.backgroundSize = (base * ZOOM) + "%";
+        });
+      });
+      el.addEventListener("mousemove", function(e){
+        var r = el.getBoundingClientRect();
+        var dx = (e.clientX - r.left) / r.width - 0.5;
+        var dy = (e.clientY - r.top) / r.height - 0.5;
+        el.style.backgroundPosition = (50 - dx * 16) + "% " + (50 - dy * 16) + "%";
+      });
+      el.addEventListener("mouseleave", function(){
+        var base = el._base || coverPct();
+        el.style.backgroundSize = base + "%";    // eased zoom-out back to cover
+        el.style.backgroundPosition = "50% 50%";
+        setTimeout(function(){                   // restore the cover keyword once settled
+          if (!el.matches(":hover")){ el.style.backgroundSize = ""; el.style.backgroundPosition = ""; }
+        }, 640);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
