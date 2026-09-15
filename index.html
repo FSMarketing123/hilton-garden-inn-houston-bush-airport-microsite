@@ -248,13 +248,14 @@
         overflow:hidden;background:var(--hub-bg);color:var(--hub-ink);font-family:var(--font-jost);
         padding:var(--grid-gap);max-width:1360px;margin:clamp(24px,3vw,44px) auto 0;border-radius:4px}
   .houston-hub *,.iah-airport *{box-sizing:border-box}
-  .houston-hub .hub-grid,.iah-airport .hub-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--grid-gap);align-items:start}
-  .houston-hub .hub-stat,.iah-airport .hub-stat{border:1px solid rgba(217,208,193,.26);background:rgba(0,48,79,.92);border-radius:3px;transition:border-color .22s,background .22s,transform .22s;min-width:0}
-  .houston-hub .hub-stat:hover,.iah-airport .hub-stat:hover,.houston-hub .hub-stat[open]{background:#014a83;border-color:var(--hub-accent)}
-  .houston-hub .hub-stat:hover,.iah-airport .hub-stat:hover{transform:translateY(-4px)}
-  .houston-hub .hub-stat summary,.iah-airport .hub-stat summary{list-style:none;cursor:pointer;padding:24px;min-height:272px;display:flex;flex-direction:column}
-  .houston-hub .hub-stat summary::-webkit-details-marker,.iah-airport .hub-stat summary::-webkit-details-marker{display:none}
-  .houston-hub .hub-stat summary:focus-visible,.iah-airport .hub-stat summary:focus-visible{outline:3px solid var(--hub-accent);outline-offset:5px;border-radius:3px}
+  .houston-hub .hub-grid,.iah-airport .hub-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--grid-gap);align-items:stretch}
+  .houston-hub .hub-stat,.iah-airport .hub-stat{border:1px solid rgba(217,208,193,.26);background:rgba(0,48,79,.92);border-radius:3px;
+        padding:24px;min-height:230px;display:flex;flex-direction:column;min-width:0;
+        transform-origin:center;will-change:transform;
+        transition:border-color .22s,background .22s,transform .28s cubic-bezier(.16,1,.3,1)}
+  /* hover: expand slightly */
+  .houston-hub .hub-stat:hover,.iah-airport .hub-stat:hover{background:#014a83;border-color:var(--hub-accent);
+        transform:scale(1.04);position:relative;z-index:2}
   .houston-hub .hub-card-top,.iah-airport .hub-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
   .houston-hub .hub-icon,.iah-airport .hub-icon{width:31px;height:31px;color:var(--hub-accent);fill:none;stroke:currentColor;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
   .houston-hub .hub-stat:hover .hub-icon,.iah-airport .hub-stat:hover .hub-icon{transform:translateY(-3px)}
@@ -263,21 +264,12 @@
   .houston-hub .hub-number small,.iah-airport .hub-number small{font-size:.46em;letter-spacing:-.5px;margin-left:3px}
   .houston-hub .hub-label,.iah-airport .hub-label{font-size:14px;line-height:1.5;color:var(--cream);font-weight:500}
   .houston-hub .hub-context,.iah-airport .hub-context{display:block;color:var(--cream-muted);font-size:12px;font-weight:300;margin-top:3px}
-  .houston-hub .hub-action,.iah-airport .hub-action{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:22px;color:var(--hub-accent);font-size:11px;letter-spacing:.6px}
-  .houston-hub .hub-plus,.iah-airport .hub-plus{font-size:20px;font-weight:400;transition:transform .2s}
-  .houston-hub .hub-stat[open] .hub-plus,.iah-airport .hub-stat[open] .hub-plus{transform:rotate(45deg)}
-  .houston-hub .hub-close-label,.iah-airport .hub-close-label,.houston-hub .hub-stat[open] .hub-open-label{display:none}
-  .houston-hub .hub-stat[open] .hub-close-label,.iah-airport .hub-stat[open] .hub-close-label{display:inline}
-  .houston-hub .hub-detail,.iah-airport .hub-detail{margin:0 24px;padding:18px 0 24px;border-top:1px solid rgba(217,208,193,.24);color:var(--cream-muted);font-size:13px;line-height:1.65}
-  .houston-hub .hub-detail p,.iah-airport .hub-detail p{margin:0}
-  .houston-hub .hub-meter,.iah-airport .hub-meter{height:5px;background:rgba(255,255,255,.14);border-radius:4px;margin:0 0 13px;overflow:hidden}
-  .houston-hub .hub-meter span,.iah-airport .hub-meter span{display:block;width:92%;height:100%;background:var(--accent)}
   @media(min-width:1500px){.houston-hub .hub-number,.iah-airport .hub-number{font-size:60px}}
-  @media(max-width:1050px){.houston-hub .hub-grid,.iah-airport .hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.houston-hub .hub-number,.iah-airport .hub-number{font-size:52px}.houston-hub .hub-stat summary,.iah-airport .hub-stat summary{min-height:264px}}
-  @media(max-width:540px){.houston-hub .hub-grid,.iah-airport .hub-grid{grid-template-columns:1fr}.houston-hub .hub-stat summary,.iah-airport .hub-stat summary{min-height:240px}.houston-hub .hub-card-top,.iah-airport .hub-card-top{margin-bottom:20px}.houston-hub .hub-number,.iah-airport .hub-number{font-size:52px}}
+  @media(max-width:1050px){.houston-hub .hub-grid,.iah-airport .hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.houston-hub .hub-number,.iah-airport .hub-number{font-size:52px}.houston-hub .hub-stat,.iah-airport .hub-stat{min-height:224px}}
+  @media(max-width:540px){.houston-hub .hub-grid,.iah-airport .hub-grid{grid-template-columns:1fr}.houston-hub .hub-stat,.iah-airport .hub-stat{min-height:200px}.houston-hub .hub-card-top,.iah-airport .hub-card-top{margin-bottom:20px}.houston-hub .hub-number,.iah-airport .hub-number{font-size:52px}}
   @media(prefers-reduced-motion:reduce){
-    .houston-hub .hub-stat,.houston-hub .hub-icon,.houston-hub .hub-plus,
-    .iah-airport .hub-stat,.iah-airport .hub-icon,.iah-airport .hub-plus{transition:none}
+    .houston-hub .hub-stat,.houston-hub .hub-icon,
+    .iah-airport .hub-stat,.iah-airport .hub-icon{transition:none}
     .houston-hub .hub-stat:hover,.houston-hub .hub-stat:hover .hub-icon,
     .iah-airport .hub-stat:hover,.iah-airport .hub-stat:hover .hub-icon{transform:none}
   }
@@ -285,24 +277,19 @@
   .iah-airport .hub-grid + .hub-grid{margin-top:var(--grid-gap)}
   .iah-airport .airport-four{grid-template-columns:repeat(4,minmax(0,1fr))}
   .iah-airport .airport-three{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .iah-airport .hub-stat summary{min-height:270px}
   .iah-airport .hub-number{font-size:clamp(42px,4.6vw,64px)}
   .iah-airport .hub-card-top{margin-bottom:24px}
   .iah-airport .airport-status{font-size:10px;letter-spacing:1px;color:var(--sand);
         border:1px solid rgba(217,208,193,.45);padding:5px 7px;border-radius:3px}
-  .iah-airport .airport-milestones{display:grid;grid-template-columns:1fr;gap:var(--grid-gap);margin:18px 0 0;padding:0;list-style:none}
-  .iah-airport .airport-milestones li{border-left:2px solid var(--accent);padding-left:12px}
-  .iah-airport .airport-milestones strong{display:block;color:var(--sand);font-size:16px;font-weight:600}
-  .iah-airport .airport-milestones span{display:block;font-size:12px}
   @media(max-width:1050px){
     .iah-airport .airport-four{grid-template-columns:repeat(2,minmax(0,1fr))}
     .iah-airport .airport-three{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .iah-airport .airport-three .hub-stat summary{padding:20px;min-height:282px}
+    .iah-airport .airport-three .hub-stat{padding:20px}
     .iah-airport .airport-three .hub-number{font-size:40px}
   }
   @media(max-width:720px){
     .iah-airport .airport-three{grid-template-columns:1fr}
-    .iah-airport .airport-three .hub-stat summary{min-height:240px;padding:24px}
+    .iah-airport .airport-three .hub-stat{padding:24px}
     .iah-airport .airport-three .hub-number{font-size:52px}
   }
   @media(max-width:540px){
@@ -371,8 +358,8 @@
     <p class="kicker" style="text-align:center">Investment Overview<span class="rule" style="margin:12px auto 0"></span></p>
     <p class="lead">Hodges Ward Elliott ("HWE") is pleased to present the opportunity to acquire the <b>182-key Hilton Garden Inn Houston/Bush Intercontinental Airport</b> (the “Hotel” or “Property”), situated just over three miles from George Bush Intercontinental Airport, one of the nation’s busiest air travel hubs. The Hotel sits in a highly established corporate corridor surrounded by <b>over 70 million square feet of office and industrial space within a five-mile radius</b>, with major employers in the area including United Airlines, Baker Hughes, HMH, Integra Mission Critical, and Halliburton. Furthermore, Eli Lilly and Bristol Myers Squibb are investing <b>nearly $9 billion combined</b> to build brand-new manufacturing developments at the emerging Generation Park, representing some of the largest life science investments in Texas history. Beltway 8 and Interstate 69 provide convenient access to the Houston metro as well, easily connecting visitors to the greater MSA. The well-located Hilton Garden Inn presents a rare opportunity to acquire a top asset in one of Houston's most consistently high-demand submarkets.</p>
     <div class="btn-row" style="margin-top:44px">
-      <a class="btn" href="#" data-ca="sign">Sign Confidentiality Agreement</a>
-      <a class="btn" href="#" data-ca="download">Download Confidentiality Agreement</a>
+      <a class="btn" href="https://secure.rightsignature.com/templates/24483801-f0bd-4324-957d-cb3f4230449b/template-signer-link/9ec71490a226b4b335bba91bfc58aade" target="_blank" rel="noopener noreferrer">Sign Confidentiality Agreement</a>
+      <a class="btn" href="docs/TX_Houston_HGI_Bush_Intercon_Apt_CA.docx" download>Download Confidentiality Agreement</a>
     </div>
   </div>
 </section>
@@ -424,15 +411,15 @@
     <!-- BEGIN IAH CALLOUT COMPONENT -->
     <section class="iah-airport" aria-label="George Bush Intercontinental Airport highlights">
      <div class="hub-grid airport-four">
-      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m3 17 11-3V6c0-5 4-5 4 0v8l11 3v3l-11-1v6l4 3v2l-6-2-6 2v-2l4-3v-6L3 20z"/></svg><span class="hub-index">01 / TRAFFIC</span></span><span class="hub-number">48.1<small>M</small></span><span class="hub-label">Total passengers<span class="hub-context">Served at IAH in 2025</span></span><span class="hub-action"><span class="hub-open-label">Explore passenger demand</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>IAH served 48.1 million passengers in 2025, supporting its position as a major domestic and international gateway.</p></div></details>
-      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><ellipse cx="16" cy="16" rx="5" ry="12"/><path d="M4 16h24M6 10h20M6 22h20"/></svg><span class="hub-index">02 / GLOBAL</span></span><span class="hub-number">12.4<small>M</small></span><span class="hub-label">International passengers<span class="hub-context">Record international traffic · 2025</span></span><span class="hub-action"><span class="hub-open-label">Discover international reach</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>A record 12.4 million international passengers traveled through IAH in 2025, reinforcing the airport’s global connections.</p></div></details>
-      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V12h5v15M23 27V6h5v21M4 11l9-7 5 3 8-5M21 2h5v5"/></svg><span class="hub-index">03 / IMPACT</span></span><span class="hub-number">$30.7<small>B</small></span><span class="hub-label">Total economic impact<span class="hub-context">Annual regional impact</span></span><span class="hub-action"><span class="hub-open-label">Explore the economic impact</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>IAH generates $30.7 billion in total annual economic impact across the region, including $9.9 billion in labor income.</p></div></details>
-      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="7" width="26" height="18" rx="2"/><circle cx="16" cy="16" r="5"/><path d="M7 16h1M24 16h1M16 13v6"/></svg><span class="hub-index">04 / INCOME</span></span><span class="hub-number">$9.9<small>B</small></span><span class="hub-label">Labor income<span class="hub-context">Included in total annual impact</span></span><span class="hub-action"><span class="hub-open-label">See the workforce impact</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>Airport-related activity generates $9.9 billion in annual labor income, a component of IAH’s total economic impact.</p></div></details>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m3 17 11-3V6c0-5 4-5 4 0v8l11 3v3l-11-1v6l4 3v2l-6-2-6 2v-2l4-3v-6L3 20z"/></svg><span class="hub-index">01 / TRAFFIC</span></span><span class="hub-number">48.1<small>M</small></span><span class="hub-label">Total passengers<span class="hub-context">Served at IAH in 2025</span></span></div>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><ellipse cx="16" cy="16" rx="5" ry="12"/><path d="M4 16h24M6 10h20M6 22h20"/></svg><span class="hub-index">02 / GLOBAL</span></span><span class="hub-number">12.4<small>M</small></span><span class="hub-label">International passengers<span class="hub-context">Record international traffic · 2025</span></span></div>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V12h5v15M23 27V6h5v21M4 11l9-7 5 3 8-5M21 2h5v5"/></svg><span class="hub-index">03 / IMPACT</span></span><span class="hub-number">$30.7<small>B</small></span><span class="hub-label">Total economic impact<span class="hub-context">Annual regional impact</span></span></div>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="7" width="26" height="18" rx="2"/><circle cx="16" cy="16" r="5"/><path d="M7 16h1M24 16h1M16 13v6"/></svg><span class="hub-index">04 / INCOME</span></span><span class="hub-number">$9.9<small>B</small></span><span class="hub-label">Labor income<span class="hub-context">Included in total annual impact</span></span></div>
      </div>
      <div class="hub-grid airport-three">
-      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="9" r="4"/><path d="M9 28v-6a7 7 0 0 1 14 0v6M5 12a3 3 0 1 1 3-5M27 12a3 3 0 1 0-3-5M2 25v-5a5 5 0 0 1 5-5M30 25v-5a5 5 0 0 0-5-5"/></svg><span class="hub-index">05 / JOBS</span></span><span class="hub-number">~158<small>K</small></span><span class="hub-label">Jobs supported<span class="hub-context">Across the region</span></span><span class="hub-action"><span class="hub-open-label">Explore regional employment</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>IAH supports roughly 158,000 jobs across the region, reflecting the breadth of its economic contribution.</p></div></details>
-      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 28h26M5 28V12h22v16M10 12V5h12v7M10 18h3M19 18h3M10 23h3M19 23h3M14 5V2h4v3"/></svg><span class="airport-status">COMPLETED</span></span><span class="hub-number">$1.46<small>B</small></span><span class="hub-label">Recent airport renovation<span class="hub-context">Terminal D-West Pier + International Central Processor</span></span><span class="hub-action"><span class="hub-open-label">Explore the completed upgrades</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>The renovation added the 160,000-square-foot Terminal D-West Pier, with 10 new gates, restaurants, and amenity spaces. The International Central Processor consolidates ticketing, security, and baggage operations to simplify the passenger journey.</p></div></details>
-      <details class="hub-stat"><summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 29V4h4v25M5 4h22v4H5M9 4l9-3 9 3M23 8v9l3 2-3 3-3-2M2 29h10M17 29v-5h12v5"/></svg><span class="airport-status">UNDERWAY</span></span><span class="hub-number">$2.55<small>B</small></span><span class="hub-label">Terminal B Transformation<span class="hub-context">New concourse, modernized gates, enhanced amenities</span></span><span class="hub-action"><span class="hub-open-label">See the expansion milestones</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary><div class="hub-detail"><p>The transformation expands gate capacity and upgrades traveler amenities in the terminal lobby.</p><ul class="airport-milestones"><li><strong>22 new gates</strong><span>North Concourse</span><span>Expected by end of 2026</span></li><li><strong>18 modernized gates</strong><span>South Concourse</span><span>Expected by early 2028</span></li></ul></div></details>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="9" r="4"/><path d="M9 28v-6a7 7 0 0 1 14 0v6M5 12a3 3 0 1 1 3-5M27 12a3 3 0 1 0-3-5M2 25v-5a5 5 0 0 1 5-5M30 25v-5a5 5 0 0 0-5-5"/></svg><span class="hub-index">05 / JOBS</span></span><span class="hub-number">~158<small>K</small></span><span class="hub-label">Jobs supported<span class="hub-context">Across the region</span></span></div>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 28h26M5 28V12h22v16M10 12V5h12v7M10 18h3M19 18h3M10 23h3M19 23h3M14 5V2h4v3"/></svg><span class="airport-status">COMPLETED</span></span><span class="hub-number">$1.46<small>B</small></span><span class="hub-label">Recent airport renovation<span class="hub-context">Terminal D-West Pier + International Central Processor</span></span></div>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 29V4h4v25M5 4h22v4H5M9 4l9-3 9 3M23 8v9l3 2-3 3-3-2M2 29h10M17 29v-5h12v5"/></svg><span class="airport-status">UNDERWAY</span></span><span class="hub-number">$2.55<small>B</small></span><span class="hub-label">Terminal B Transformation<span class="hub-context">New concourse, modernized gates, enhanced amenities</span></span></div>
      </div>
     </section>
     <!-- END IAH CALLOUT COMPONENT -->
@@ -453,22 +440,10 @@
     <!-- BEGIN HOUSTON CALLOUT COMPONENT -->
     <section class="houston-hub" aria-label="Houston industrial and logistics highlights">
      <div class="hub-grid">
-      <details class="hub-stat">
-       <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27V12l13-8 13 8v15M3 12h26M8 27V16h16v11M8 21h16M8 25h16"/></svg><span class="hub-index">01 / SCALE</span></span><span class="hub-number">32M<small>SF</small></span><span class="hub-label">Industrial space<span class="hub-context">Within a three-mile radius</span></span><span class="hub-action"><span class="hub-open-label">Explore the footprint</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
-       <div class="hub-detail"><p>Nearly 32 million square feet of nearby industrial inventory anchor the corridor, with more than 771,000 additional square feet under construction.</p></div>
-      </details>
-      <details class="hub-stat">
-       <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25a13 13 0 1 1 22 0M16 18l8-9M7 16h2M16 5v2M25 16h2"/><circle cx="16" cy="18" r="2.5"/></svg><span class="hub-index">02 / DEMAND</span></span><span class="hub-number">92<small>%</small></span><span class="hub-label">Industrial occupancy<span class="hub-context">Within a three-mile radius</span></span><span class="hub-action"><span class="hub-open-label">See market demand</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
-       <div class="hub-detail"><div class="hub-meter" role="img" aria-label="Approximately 92 percent occupied"><span></span></div><p>Approximately 92% occupancy reflects strong demand across the surrounding industrial market.</p></div>
-      </details>
-      <details class="hub-stat">
-       <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V12h5v15M23 27V6h5v21M4 11l9-7 5 3 8-5M21 2h5v5"/></svg><span class="hub-index">03 / IMPACT</span></span><span class="hub-number">$12.5<small>B</small></span><span class="hub-label">Cargo-related economic impact<span class="hub-context">Annual impact of IAH</span></span><span class="hub-action"><span class="hub-open-label">Explore the impact</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
-       <div class="hub-detail"><p>George Bush Intercontinental Airport anchors the region’s logistics hub, generating $12.5 billion in annual cargo-related economic impact.</p></div>
-      </details>
-      <details class="hub-stat">
-       <summary><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m3 17 11-3V6c0-5 4-5 4 0v8l11 3v3l-11-1v6l4 3v2l-6-2-6 2v-2l4-3v-6L3 20z"/></svg><span class="hub-index">04 / REACH</span></span><span class="hub-number">550K<small>+</small></span><span class="hub-label">Metric tons of air cargo<span class="hub-context">Processed at IAH in 2025</span></span><span class="hub-action"><span class="hub-open-label">Discover global reach</span><span class="hub-close-label">Close details</span><span class="hub-plus" aria-hidden="true">+</span></span></summary>
-       <div class="hub-detail"><p>IAH processed over 550,000 metric tons of air cargo in 2025, connecting regional, national, and international supply chains.</p></div>
-      </details>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27V12l13-8 13 8v15M3 12h26M8 27V16h16v11M8 21h16M8 25h16"/></svg><span class="hub-index">01 / SCALE</span></span><span class="hub-number">32M<small>SF</small></span><span class="hub-label">Industrial space<span class="hub-context">Within a three-mile radius</span></span></div>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25a13 13 0 1 1 22 0M16 18l8-9M7 16h2M16 5v2M25 16h2"/><circle cx="16" cy="18" r="2.5"/></svg><span class="hub-index">02 / DEMAND</span></span><span class="hub-number">92<small>%</small></span><span class="hub-label">Industrial occupancy<span class="hub-context">Within a three-mile radius</span></span></div>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V17h5v10M14 27V12h5v15M23 27V6h5v21M4 11l9-7 5 3 8-5M21 2h5v5"/></svg><span class="hub-index">03 / IMPACT</span></span><span class="hub-number">$12.5<small>B</small></span><span class="hub-label">Cargo-related economic impact<span class="hub-context">Annual impact of IAH</span></span></div>
+      <div class="hub-stat"><span class="hub-card-top"><svg class="hub-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="m3 17 11-3V6c0-5 4-5 4 0v8l11 3v3l-11-1v6l4 3v2l-6-2-6 2v-2l4-3v-6L3 20z"/></svg><span class="hub-index">04 / REACH</span></span><span class="hub-number">550K<small>+</small></span><span class="hub-label">Metric tons of air cargo<span class="hub-context">Processed at IAH in 2025</span></span></div>
      </div>
     </section>
     <!-- END HOUSTON CALLOUT COMPONENT -->
@@ -548,8 +523,8 @@
 <section class="section cta band" style="padding-top:clamp(46px,7vh,84px)">
   <div class="wrap">
     <div class="btn-row">
-      <a class="btn" href="#" data-ca="sign">Sign Confidentiality Agreement</a>
-      <a class="btn" href="#" data-ca="download">Download Confidentiality Agreement</a>
+      <a class="btn" href="https://secure.rightsignature.com/templates/24483801-f0bd-4324-957d-cb3f4230449b/template-signer-link/9ec71490a226b4b335bba91bfc58aade" target="_blank" rel="noopener noreferrer">Sign Confidentiality Agreement</a>
+      <a class="btn" href="docs/TX_Houston_HGI_Bush_Intercon_Apt_CA.docx" download>Download Confidentiality Agreement</a>
     </div>
   </div>
 </section>
@@ -620,14 +595,6 @@
     window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
   })();
 
-  // CA button placeholders
-  document.querySelectorAll("[data-ca]").forEach(function(b){
-    b.addEventListener("click", function(e){
-      if (b.getAttribute("href") === "#"){ e.preventDefault();
-        alert("Confidentiality Agreement link to be added.\n(" + b.getAttribute("data-ca") + ")"); }
-    });
-  });
-
   // Parallax-on-hover for all photo panels: smooth eased zoom + pan opposite the cursor.
   (function(){
     var SEL = ".snap-photos .p, .split .media, .figure, .rgrid .r, .hou2-sky, .hou2-cards .hc";
@@ -673,33 +640,6 @@
         setTimeout(function(){                   // restore the cover keyword once settled
           if (!el.matches(":hover")){ el.style.backgroundSize = ""; el.style.backgroundPosition = ""; }
         }, 640);
-      });
-    });
-  })();
-
-  // Callout cards: only one open at a time, and a card closes once the
-  // pointer leaves it. Applies to both hubs (industrial + airport).
-  (function(){
-    var cards = [].slice.call(document.querySelectorAll(".houston-hub .hub-stat, .iah-airport .hub-stat"));
-    if (!cards.length) return;
-
-    cards.forEach(function(card){
-      // opening one closes the rest. Closing fires 'toggle' too, hence the guard —
-      // without it each close would re-enter this handler.
-      card.addEventListener("toggle", function(){
-        if (!card.open) return;
-        cards.forEach(function(other){ if (other !== card) other.open = false; });
-      });
-
-      // pointer leaves the card -> close it. The detail panel is inside the
-      // card, so reading it never triggers this.
-      card.addEventListener("mouseleave", function(){ card.open = false; });
-
-      // keyboard users get no mouseleave; close on blur instead, but only once
-      // focus has actually left the card.
-      card.addEventListener("focusout", function(e){
-        if (!card.open) return;
-        if (!e.relatedTarget || !card.contains(e.relatedTarget)) card.open = false;
       });
     });
   })();
