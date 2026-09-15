@@ -140,7 +140,7 @@
         transform-origin:center center;will-change:transform;transform:scale(1.1)}
   .hero .bg::after{content:"";position:absolute;inset:0;pointer-events:none;
         background:linear-gradient(180deg,rgba(0,20,34,.46) 0%,rgba(0,20,34,.14) 34%,rgba(0,20,34,.06) 62%,rgba(0,20,34,.3) 100%)}
-  .hero .plogo{position:relative;z-index:20;align-self:flex-start;margin:clamp(104px,18vh,210px) 0 0 var(--pad);
+  .hero .plogo{position:relative;z-index:20;align-self:flex-start;margin:clamp(100px,15vh,170px) 0 0 var(--pad);
         width:min(40vw,320px);padding:clamp(12px,1.6vw,20px);
         background:rgba(0,48,79,.52);
         -webkit-backdrop-filter:blur(10px) saturate(120%);backdrop-filter:blur(10px) saturate(120%);
@@ -203,6 +203,16 @@
         height:clamp(300px,38vw,600px);border-radius:2px}
   .figure span{position:absolute;left:0;right:0;bottom:0;padding:16px 20px;font-size:14px;letter-spacing:.05em;
         color:#fff;background:linear-gradient(0deg,rgba(0,20,34,.72),rgba(0,20,34,0))}
+
+  /* aerial placeholder — swap for the real image when it lands */
+  .figure-ph{margin-top:clamp(24px,3vw,44px);height:clamp(300px,38vw,600px);border-radius:2px;
+        border:2px dashed rgba(0,61,111,.32);background:rgba(0,61,111,.05);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+        color:var(--ink-muted);text-align:center;padding:24px}
+  .figure-ph svg{width:44px;height:44px;stroke:rgba(0,61,111,.45);fill:none;stroke-width:1.4;
+        stroke-linecap:round;stroke-linejoin:round}
+  .figure-ph .ph-ttl{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--char)}
+  .figure-ph .ph-sub{font-size:12.5px;letter-spacing:.04em}
 
   /* two-up rendering grid */
   .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap);margin-top:clamp(24px,3vw,44px)}
@@ -447,6 +457,16 @@
      </div>
     </section>
     <!-- END HOUSTON CALLOUT COMPONENT -->
+
+    <div class="figure-ph" role="img" aria-label="Placeholder for an aerial view of the industrial and logistics corridor">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="5" y="9" width="38" height="30" rx="2.5"/>
+        <circle cx="16" cy="19" r="3.2"/>
+        <path d="M5 33l11-9 8 7 7-6 12 10"/>
+      </svg>
+      <span class="ph-ttl">Aerial — Placeholder</span>
+      <span class="ph-sub">Industrial &amp; logistics corridor aerial to be added</span>
+    </div>
   </div>
 </section>
 
