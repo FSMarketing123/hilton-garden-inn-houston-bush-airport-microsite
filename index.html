@@ -140,12 +140,18 @@
         transform-origin:center center;will-change:transform;transform:scale(1.1)}
   .hero .bg::after{content:"";position:absolute;inset:0;pointer-events:none;
         background:linear-gradient(180deg,rgba(0,20,34,.46) 0%,rgba(0,20,34,.14) 34%,rgba(0,20,34,.06) 62%,rgba(0,20,34,.3) 100%)}
-  .hero .plogo{position:relative;z-index:20;align-self:flex-start;margin:clamp(100px,15vh,170px) 0 0 var(--pad);
-        width:min(40vw,320px);padding:clamp(12px,1.6vw,20px);
-        background:rgba(0,48,79,.52);
-        -webkit-backdrop-filter:blur(10px) saturate(120%);backdrop-filter:blur(10px) saturate(120%);
-        border:1px solid rgba(255,255,255,.14);border-radius:2px;box-shadow:0 18px 44px rgba(0,0,0,.3)}
-  .hero .plogo img{width:100%;height:auto}
+  /* Liquid-glass hero panel (hilton-glass.css), placed on the hero's flex line */
+  .hgi-glass{position:relative;display:grid;place-items:center;
+        width:min(44vw,440px);aspect-ratio:1.52;box-sizing:border-box;overflow:hidden;
+        border-radius:14px;box-shadow:0 6px 6px rgba(0,0,0,.2),0 0 20px rgba(0,0,0,.1)}
+  .hgi-glass__effect,.hgi-glass__tint,.hgi-glass__shine{position:absolute;inset:0;border-radius:inherit;pointer-events:none}
+  .hgi-glass__effect{z-index:0;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+        filter:url(#glass-distortion);overflow:hidden;isolation:isolate}
+  .hgi-glass__tint{z-index:1;background:rgba(0,61,111,.38)}
+  .hgi-glass__shine{z-index:2;box-shadow:inset 2px 2px 1px 0 rgba(255,255,255,.5),
+        inset -1px -1px 1px 1px rgba(255,255,255,.5)}
+  .hgi-glass__logo{position:relative;z-index:3;display:block;width:70%;height:auto}
+  .hero .hgi-glass{z-index:20;align-self:flex-start;margin:clamp(100px,15vh,170px) 0 0 var(--pad)}
   .hero .cue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:20;line-height:0}
   .hero .cue svg{display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
   .hero .cue path{opacity:.14;animation:cueWave 1.8s ease-in-out infinite}
@@ -155,7 +161,9 @@
   /* mobile: logo centred, and the crop slid right so the entrance canopy
      is no longer clipped at the left edge */
   @media(max-width:768px){
-    .hero .plogo{align-self:center;margin-left:0;margin-right:0}
+    /* logo is 70% of the panel, so widen the panel to keep the lockup
+       at the size it was before the glass swap */
+    .hero .hgi-glass{align-self:center;margin-left:0;margin-right:0;width:min(60vw,440px)}
     .hero .bg{background-position:30% center}
   }
 
@@ -358,7 +366,12 @@
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <div class="bg"></div>
-  <div class="plogo"><img src="assets/property-logo.svg" alt="Hilton Garden Inn Houston/Bush Intercontinental Airport"></div>
+  <div class="hgi-glass">
+    <div class="hgi-glass__effect" aria-hidden="true"></div>
+    <div class="hgi-glass__tint" aria-hidden="true"></div>
+    <div class="hgi-glass__shine" aria-hidden="true"></div>
+    <img class="hgi-glass__logo" src="assets/property-logo-white.svg" alt="Hilton Garden Inn Houston/Bush Intercontinental Airport">
+  </div>
   <span class="cue" aria-hidden="true">
     <svg viewBox="0 0 28 42" width="28" height="42" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 7 L14 15 L23 7"/>
@@ -579,6 +592,24 @@
     This microsite and its contents are confidential and intended solely for the recipient. All information has been obtained from sources deemed reliable; however, Hodges Ward Elliott makes no representation or warranty as to its accuracy or completeness. Access to the Offering Memorandum requires execution of a Confidentiality Agreement.
   </div>
 </footer>
+
+<!-- glass distortion filter for the hero panel (hilton-glass.html) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute;pointer-events:none">
+  <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+    <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="1" seed="5" result="turbulence"/>
+    <feComponentTransfer in="turbulence" result="mapped">
+      <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5"/>
+      <feFuncG type="gamma" amplitude="0" exponent="1" offset="0"/>
+      <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5"/>
+    </feComponentTransfer>
+    <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap"/>
+    <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lighting-color="white" result="specLight">
+      <fePointLight x="-200" y="-200" z="300"/>
+    </feSpecularLighting>
+    <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage"/>
+    <feDisplacementMap in="SourceGraphic" in2="softMap" scale="150" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
 <!-- ============ SCRIPTS ============ -->
 <script>
